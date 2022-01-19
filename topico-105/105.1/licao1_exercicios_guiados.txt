@@ -1,0 +1,62 @@
+1. Analise como os shells foram iniciados na coluna "shell iniciado com..." e complete com as informações necessárias:
+a) Shell iniciado com... sudo ssh user2@machine2
+- Interativo? sim.
+- Login? sim.
+- Resultado de echo $0? -bash ou -su. 
+
+b) Shell iniciado com... Ctrl + Alt + F2
+- Interativo? sim.
+- Login? sim.
+- Resultado de echo $0? -bash ou -su.
+
+c) Shell iniciado com... su - user2
+- Interativo? sim.
+- Login? sim.
+- Resultado de echo $0? -bash ou -su.
+
+d) Shell iniciado com... gnome-terminal
+- Interativo? sim.
+- Login? não.
+- Resultado de echo $0? bash ou /bin/bash.
+
+e) Shell iniciado com... Um usuário comum usa o console para iniciar uma instância de sakura.
+- Interativo? sim.
+- Login? não.
+- Resultado de echo $0? bash ou /bin/bash.
+
+f) Shell iniciado com... Um script chamado test.sh contendo o comando echo $0.
+- Interativo? não.
+- Login? não.
+- Resultado de echo $0? ./test.sh
+
+2. Escreva os comandos su e sudo para lançar o shell especificado:
+a) Shell de login interativo como user2
+- comando: su - user2, su -l user2 ou su --login user2
+- comando sudo su - user2, sudo su -l user2 ou sudo su --login user2
+
+b) Shell de login interativo como root
+- comando: su -, su - root
+- comando: sudo su -, sudo su - ou sudo -i
+
+c) Shell sem login interativo como root
+- comando: su , su root
+- comando: sudo su , sudo su root, sudo -s ou sudo -u root -s
+
+d) Shell sem login interativo como user2
+- comando: su user2
+- comando: sudo su user2 ou su -u user2 -s
+
+OBS: ao utilizar o sudo, será perguntada a senha do atual usuário logado.
+
+3. Qual arquivo de inicialização é lido quando iniciamos o shell da coluna "Tipo de shell"?
+a) Tipo de shell: Shell de login interativo como user2
+- Os arquivos lidos serão o /etc/profile, /etc/bash.bashrc, ~/.profile e ~/.bashrc.
+
+b) Tipo de shell: Shell de login interativo como root
+- Os arquivos lidos serão o /etc/profile e o /etc/bash.bashrc.
+
+c) Tipo de shell: Shell sem login interativo como root
+- O arquivo lido será o /etc/bash.bashrc.
+
+d) Tipo de shell: Shell sem login interativo como root.
+- Os arquivos lidos serão o /etc/bash.bashrc e o ~/.bashrc.
