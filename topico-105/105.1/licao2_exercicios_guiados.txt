@@ -1,0 +1,101 @@
+1. Analise a atribuição de variáveis e indique se a variável resultante é local ou global
+a) debian=mother. Variável local
+b) ubuntu=deb-based. Variável local
+c) mint=ubuntu-based; export mint. Variável global.
+d) export suse=rpm-based. Variável global.
+e) zorinos=ubuntu-based. Variável local.
+
+2. Estude o "comando" e a "saída" e explique o significado
+a) Comando: echo $HISTCONTROL // Saída: ignoreboth
+- O comando imprimirá o conteúdo do HISTCONTROL, variável que controla quais comandos são salvos em HISTFILE.
+A saída "ignoreboth" indica que tanto comandos iniciados com um espaço (ignorespace) quanto comandos idênticos
+ao anterior (ignoredups) não serão salvos. 
+
+b) Comando: echo ~ // Saída: /home/carol
+- O comando imprimirá o diretório /home do usuário carol.
+
+c) Comando: echo $DISPLAY // Saída: reptilium:0:2
+- O comando imprimirá as informações sobre o servidor X na seguinte estrutura: hostname:D.S, onde D (display) e S (screen).
+
+d) Comando: echo $MAILCHECK // Saída: 60
+- O comando imprimirá a frequência com que o bash verificará se há novas mensagens no /var/mail/<user>
+
+e) Comando: echo $HISTFILE // Saída: /home/carol/.bash_history
+- O comando imprimirá o nome do arquivo aonde fica armazenado o histórico de comandos do bash do usuário carol.
+
+3. As variáveis da coluna "comando errado" estão definidas incorretamente. Forneça as informações que faltam em 
+"comando correto" e "referência da variável" para obter a "saída esperada"
+a) Comando errado: lizard =chameleon // Saída esperada: chameleon
+- Comando correto: lizard=chameleon
+- Referência da variável: echo $lizard
+
+b) Comando errado: cool lizard=chameleon // Saída esperada: chameleon
+- Comando correto: cool_lizard=chameleon
+- Referência da variável: echo $cool_lizard
+
+c) Comando errado: lizard=cha|me|leon // Saída esperada: cha|me|leon
+- Comando correto: lizard="cha|me|leon"
+- Referência da variável: echo "$lizard"
+
+d) Comando errado: win_path=C:\path\to\dir\ // Saída esperadao: C:\path\to\dir
+- Comando correto: win_path="C:\path\to\dir"
+- Comando correto: win_path=C:\\path\\to\\dir\\
+- Referência da variável: echo $win_path
+
+4. Considere a finalidade e escreva o comando apropriado
+a) Finalidade: definir o idioma do shell atual para Espanhol UTF-8 (es_ES.UTF-8). // Comando: LANG=es_EX.UTF-8
+b) Finalidade: imprimir o nome do diretório de trabalho atual. // Comando: printenv PWD
+c) Finalidade: referenciar a variável de ambiente que armazena as informações sobre as conexões ssh. // Comando: echo $SSH_CONNECTION
+d) Finalidade: definir PATH de forma a incluir /home/carol/scripts como último diretório. // Comando: PATH=$PATH:/home/carol/scripts
+e) Finalidade: definir o valor de my_path como PATH. // Comando: my_path=PATH
+f) Finalidade: definir o valor de my_path para o de PATH. // Comando: my_path=$PATH
+
+5. Crie uma variável local chamada mammal e atribua a ela o valor gnu
+- Comando: mammal="gnu"
+
+6. Usando a substituição de variáveis, crie outra variável local chamada var_sub com o valor apropriado para que,
+ao referenciá-la com echo $var_sub, possamos obter: The value of mammal is gnu
+- Comando: var_sub="The value of mammal is $mammal"
+
+7. Transforme mammal em variável de ambiente
+- Comando: export mammal
+
+8. Procure por ela com set e grep
+- Comando: set | grep "mammal"
+
+9. Procure por ela com env e grep
+- Comando: env | grep "mammal"
+
+10. Crie, em dois comandos consecutivos, uma variável de ambiente chamada BIRD cujo valor é penguin
+- Comando: BIRD="penguin" ; export BIRD
+
+11. Criem em um único comando, uma variável de ambiente chamada NEW_BIRD cujo valor é yellow-eyed-penguin
+- Comando: export NEW_BIRD="yellow-eyed-penguin"
+
+12. Supondo que você é user2, crie uma pasta chamada bin em seu diretório inicial
+- Comando: mkdir ~/bin
+
+13. Digite o comando para adicionar a pastar ~/bin a seu PATH para que este seja o primeiro diretório em que
+o bash busca por binários.
+- Comando: PATH=~/bin/:$PATH
+
+14. Para garantir que o valor de PATH permaneça inalterado após uma reinicialização, qual trecho de código -
+na forma de uma declaração if - você incluiria em ~/.profile?
+- Comando: if [ -d "$HOME/bin" ] ; then PATH="$HOME/bin":$PATH
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

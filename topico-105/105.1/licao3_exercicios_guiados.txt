@@ -1,0 +1,76 @@
+1. Complete a tabela com "sim" ou "não" levando em conta as capacidades dos aliases e funções
+a) recurso: variáveis locais podem ser usadas.
+- aliases: sim.
+- funcões: sim.
+
+b) recurso: variáveis de ambiente podem ser usadas.
+- aliases: sim.
+- funções: sim.
+
+c) recurso: podem ser escapadas com \.
+- aliases: sim.
+- funções: não.
+
+d) recurso: podem ser recursivas.
+- aliases: sim.
+- funções: sim.
+
+e) recurso: muito produtivas quando usadas com parâmetros posicionais.
+- aliases: não.
+- funções: sim.
+
+2. Escreva o comando que lista todos os aliases do sistema
+- Comando: alias
+
+3. Escreva um alias chamado logg para listar todos os arquivos ogg em ~/Music - um por linha.
+- Comando: echo 'alias logg="ls -l ~/Music/*.ogg"' >> ~/.bash_aliases && source ~/.bash_aliase
+
+4. Invoque o alias para provar que funciona
+- Comando: logg
+
+5. Agora modifique o alias para que ele exiba o nome do usuário da sessão e dois pontos antes da listagem
+- Comando: echo 'alias logg="echo Hi, $USER! Your musics are:\ && ls -l ~/Music/*.ogg"' >> ~/.bash_aliases && source ~/.bash_aliases
+
+6. Invoque-o novamente para provar que esta nova versão também funciona
+- Comando: logg
+
+7. Remova o alias
+- Comando: unalias logg
+
+8. Estude as colunas "nome do alias" e "comando com alias" e atribua corretamente os aliases a seus valores
+a) nome do alias: b // comando com alias: bash
+- atribuição do alias: alias b="bash"
+b) nome do alias: bash_info // comando com alias: which bash + echo "$BASH_VERSION"
+- atribuição do alias: alias bash_info='which bash; echo "$BASH_VERSION"'
+c) nome do alias: kernel_info // comando com alias: uname -r
+- atribuição do alias: alias kernel_info="uname -r"
+d) nome do alias: greet // comando com alias: echo Hi, $USER!
+- atribuição do alias: alias greet="echo Hi, $USER!"
+e) nome do alias: computer // comando com alias: pc=slimbook + echo My computer is a $pc"
+- atribuição do alias: alias computer='pc=slimbook;echo "My computer is a $pc"'
+
+9. Como root, escreva uma função chamada my_fun em /etc/bash.bashrc. A função deve dizer olá ao usuário e informá-lo de qual é o seu caminho.
+Invoque-a para que o usuário receba ambas as mensagens a cada vez que fizer login.
+- comando: "my_fun() { echo "Hi, $USER! Your path is $PATH"; } my_fun
+
+13. Remova a função
+- Comando: unset -f my_fun
+
+14. Adivinhe as saídas:
+a) echo $# => imprimirá o número de argumentos passados ao comando - 7.
+b) echo $_ => imprimirá o nome do script - 7.
+c) echo $1 => imprimirá o primeiro argumento passado ao comando - crying.
+d) echo $1-7 => imprimirá o quarto/quinto/sexto/sétimo argumento passado ao comando.
+e) echo $@ => imprimirá todos os argumentos em sequência - crying, cockles and mussels alive alive oh.
+f) echo $? => imprimirá o status do último comando executado - 0.
+
+15. Com base na função (check_vids), escreva uma função chamada check_music a ser incluída em um script de inicialização do bash que aceite paraâmetros
+posicionais, sendo assim possível modificá-la facilmente:
+
+
+
+
+
+
+
+
